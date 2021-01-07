@@ -10,6 +10,7 @@ const Navbar = (props) => {
             placeholder="Search movies"
             name="search"
             value={props.query}
+            onChange={props.setMovieQuery}
           />
         </form>
       </div>

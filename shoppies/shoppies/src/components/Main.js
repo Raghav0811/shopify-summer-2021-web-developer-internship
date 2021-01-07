@@ -38,6 +38,10 @@ const Main = () => {
     }
   };
 
+  const setMovieQuery = (e) => {
+    setQuery(e.target.value);
+  };
+
   return (
     <div className="App">
       <Navbar query={query} getMovies={getMovies} />
