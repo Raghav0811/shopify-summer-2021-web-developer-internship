@@ -5,6 +5,13 @@ const MovieCard = (props) => {
     return movie.nominated ? "Remove" : "Nominate";
   };
 
+  const setButtonClassName = (movie) => {
+    return movie.nominated ? "remove-nomination-button" : "nomination-button";
+  };
+
+  const setDisabled = (movie) => {
+    return !movie.nominated && props.nominationLength >= 5;
+  };
   return (
     <div className="movie-card">
       <div className="movie-img-container">
@@ -19,7 +26,13 @@ const MovieCard = (props) => {
       </div>
       <p className="movie-title">{props.movie.Title}</p>
       <p>{props.movie.Year}</p>
-      <button>{setButtonText(props.movie)}</button>
+      <button
+        disabled={setDisabled(props.movie)}
+        className={setButtonClassName(props.movie)}
+        onClick={() => props.toggleNomination(props.movie)}
+      >
+        {setButtonText(props.movie)}
+      </button>
     </div>
   );
 };
