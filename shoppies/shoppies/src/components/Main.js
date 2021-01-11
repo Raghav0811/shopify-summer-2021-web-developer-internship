@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./Navbar";
+import Nominations from "./Nominations";
 import axios from "axios";
 
 const Main = () => {
@@ -7,12 +8,25 @@ const Main = () => {
   const [results, setResults] = useState([]);
   const [error, setError] = useState("");
   const [headerText, setHeaderText] = useState("Latest Releases");
+  const [nominatedMovies, setNominatedMovies] = useState([]);
 
   const getLatestMovies = async () => {
     const response = await axios(
       `http://www.omdbapi.com/?i=tt3896198&apikey=e695e9b0`
     );
+    console.log(response);
     setResults(response.data.Search);
+  };
+
+  const isAlreadyNominated = (movie) => {
+    let isNominated = false;
+    nominatedMovies.forEach((element) => {
+      if (element.imdbID === movie.imdbID) {
+        isNominated = true;
+        return isNominated;
+      }
+    });
+    return isNominated;
   };
 
   const getMovies = async (e) => {
@@ -38,13 +52,43 @@ const Main = () => {
     }
   };
 
+  const filterSearchResults = (results) => {
+    if (results.length) {
+      const filteredResults = results.filter((res) => {
+        return !isAlreadyNominated(res);
+      });
+      return filteredResults;
+    }
+    return results;
+  };
+
+  const toggleNomination = (movie) => {
+    movie.nominated = !movie.nominated;
+    const updatedNominations = movie.nominated
+      ? [...nominatedMovies, movie]
+      : nominatedMovies.filter((element) => element !== movie);
+    setNominatedMovies(updatedNominations);
+    localStorage.setItem("nominations", JSON.stringify(updatedNominations));
+  };
+
   const setMovieQuery = (e) => {
     setQuery(e.target.value);
   };
 
   return (
     <div className="App">
-      <Navbar query={query} getMovies={getMovies} />
+      <Navbar
+        query={query}
+        getMovies={getMovies}
+        setMovieQuery={setMovieQuery}
+      />
+      <div>
+        <Nominations
+          nominatedMovies={nominatedMovies}
+          toggleNomination={toggleNomination}
+          nominationLength={nominatedMovies.length}
+        ></Nominations>
+      </div>
     </div>
   );
 };
