@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./Navbar";
 import Nominations from "./Nominations";
+import SearchResults from "./SearchResults";
 import axios from "axios";
 
 const Main = () => {
@@ -9,6 +10,15 @@ const Main = () => {
   const [error, setError] = useState("");
   const [headerText, setHeaderText] = useState("Latest Releases");
   const [nominatedMovies, setNominatedMovies] = useState([]);
+
+  useEffect(() => {
+    let storedNominations = localStorage.getItem("Nominations");
+
+    if (storedNominations) {
+      setNominatedMovies(JSON.parse(storedNominations));
+    }
+    getLatestMovies();
+  }, []);
 
   const getLatestMovies = async () => {
     const response = await axios(
@@ -87,7 +97,7 @@ const Main = () => {
           nominatedMovies={nominatedMovies}
           toggleNomination={toggleNomination}
           nominationLength={nominatedMovies.length}
-        ></Nominations>
+        />
       </div>
     </div>
   );
