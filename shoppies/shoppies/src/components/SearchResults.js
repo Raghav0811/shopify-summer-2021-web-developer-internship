@@ -5,7 +5,6 @@ const SearchResults = (props) => {
   const filterMovies = (allResults) => {
     return allResults.filter((result) => !result.nominated);
   };
-
   return (
     <div>
       <h2>{props.headerText}</h2>
@@ -14,7 +13,7 @@ const SearchResults = (props) => {
           filterMovies(props.results).map((movie) => {
             return (
               <MovieCard
-                key={movie.imbdID}
+                key={movie.imdbID}
                 nominationLength={props.nominationLength}
                 toggleNomination={props.toggleNomination}
                 movie={movie}

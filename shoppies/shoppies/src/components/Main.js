@@ -22,9 +22,10 @@ const Main = () => {
 
   const getLatestMovies = async () => {
     const response = await axios(
-      `http://www.omdbapi.com/?i=tt3896198&apikey=e695e9b0`
+      `http://www.omdbapi.com/?s='the'&y=2020&apikey=e695e9b0`
     );
-    console.log(response);
+    console.log(response.data.Search);
+
     setResults(response.data.Search);
   };
 
@@ -45,9 +46,10 @@ const Main = () => {
     const response = await axios(
       `http://www.omdbapi.com/?i=${query}&apikey=e695e9b0`
     );
-
+    // console.log(response);
     if (response.data.Error) {
       setError(response.data.Error);
+      setHeaderText(response.data.Error);
     } else {
       setResults(
         response.data.Search.map((movie) => {
@@ -63,6 +65,7 @@ const Main = () => {
   };
 
   const filterSearchResults = (results) => {
+    // console.log("hello");
     if (results.length) {
       const filteredResults = results.filter((res) => {
         return !isAlreadyNominated(res);
@@ -97,6 +100,15 @@ const Main = () => {
           nominatedMovies={nominatedMovies}
           toggleNomination={toggleNomination}
           nominationLength={nominatedMovies.length}
+        />
+      </div>
+      <div>
+        <SearchResults
+          headerText={headerText}
+          toggleNomination={toggleNomination}
+          nominationLength={nominatedMovies.length}
+          results={filterSearchResults(results)}
+          error={error}
         />
       </div>
     </div>
