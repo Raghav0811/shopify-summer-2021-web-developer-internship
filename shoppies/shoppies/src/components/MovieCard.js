@@ -20,7 +20,7 @@ const MovieCard = (props) => {
           alt={props.movie.Title}
           onError={(e) => {
             e.target.onerror = null;
-            e.target.src = "";
+            e.target.src = "./404-image.png";
           }}
         />
       </div>
