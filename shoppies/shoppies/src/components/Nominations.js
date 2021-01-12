@@ -17,6 +17,7 @@ const Nominations = (props) => {
   };
 
   const getEmptyCards = () => {
+    console.log(props.nominationLength);
     const emptyCardNumber = 5 - props.nominationLength;
     return Array(emptyCardNumber).fill(<EmptyMovieCard />);
   };
