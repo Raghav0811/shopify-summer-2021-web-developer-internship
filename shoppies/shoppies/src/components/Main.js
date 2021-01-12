@@ -8,8 +8,8 @@ const Main = () => {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
   const [error, setError] = useState("");
-  const [headerText, setHeaderText] = useState("Latest Releases");
   const [nominatedMovies, setNominatedMovies] = useState([]);
+  const [headerText, setHeaderText] = useState("Latest Releases");
 
   useEffect(() => {
     let storedNominations = localStorage.getItem("Nominations");
@@ -41,12 +41,11 @@ const Main = () => {
   };
 
   const getMovies = async (e) => {
+    console.log("hello");
     e.preventDefault();
-
     const response = await axios(
-      `http://www.omdbapi.com/?i=${query}&apikey=e695e9b0`
+      `http://www.omdbapi.com/?s=${query}&apikey=e695e9b0`
     );
-    // console.log(response);
     if (response.data.Error) {
       setError(response.data.Error);
       setHeaderText(response.data.Error);
@@ -65,7 +64,6 @@ const Main = () => {
   };
 
   const filterSearchResults = (results) => {
-    // console.log("hello");
     if (results.length) {
       const filteredResults = results.filter((res) => {
         return !isAlreadyNominated(res);

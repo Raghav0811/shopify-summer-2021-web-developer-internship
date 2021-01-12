@@ -16,6 +16,7 @@ const Navbar = (props) => {
             className="button-search"
             type="submit"
             disabled={!props.query.length}
+            onClick={props.getMovies}
           >
             Search
           </button>
