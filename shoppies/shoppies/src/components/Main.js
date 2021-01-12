@@ -41,7 +41,6 @@ const Main = () => {
   };
 
   const getMovies = async (e) => {
-    console.log("hello");
     e.preventDefault();
     const response = await axios(
       `http://www.omdbapi.com/?s=${query}&apikey=e695e9b0`
