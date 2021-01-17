@@ -24,7 +24,6 @@ const Main = () => {
     const response = await axios(
       `http://www.omdbapi.com/?s='the'&y=2020&apikey=e695e9b0`
     );
-    console.log(response.data.Search);
 
     setResults(response.data.Search);
   };
