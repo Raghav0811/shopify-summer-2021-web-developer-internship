@@ -3,6 +3,11 @@ import React from "react";
 const Navbar = (props) => {
   return (
     <div className="nb-container">
+      <img
+        className="navbar-logo"
+        src="./shoppies-logo-2.png"
+        alt="shoppies-logo"
+      />
       <div className="search-bar">
         <form className="search-form" onSubmit={props.getMovies}>
           <input

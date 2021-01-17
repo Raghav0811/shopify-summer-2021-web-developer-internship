@@ -16,6 +16,7 @@ const MovieCard = (props) => {
     <div className="movie-card">
       <div className="movie-img-container">
         <img
+          className="movie-img"
           src={props.movie.Poster}
           alt={props.movie.Title}
           onError={(e) => {
