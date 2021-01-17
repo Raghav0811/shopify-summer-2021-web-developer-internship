@@ -21,8 +21,9 @@ const Main = () => {
   }, []);
 
   const getLatestMovies = async () => {
+    console.log(process.env);
     const response = await axios(
-      `http://www.omdbapi.com/?s='the'&y=2020&apikey=e695e9b0`
+      `https://www.omdbapi.com/?s='the'&y=2020&apikey=${process.env.REACT_APP_OMDB_KEY}`
     );
 
     setResults(response.data.Search);
@@ -42,7 +43,7 @@ const Main = () => {
   const getMovies = async (e) => {
     e.preventDefault();
     const response = await axios(
-      `http://www.omdbapi.com/?s=${query}&apikey=e695e9b0`
+      `http://www.omdbapi.com/?s=${query}&apikey=${process.env.REACT_APP_OMDB_KEY}`
     );
     if (response.data.Error) {
       setError(response.data.Error);
