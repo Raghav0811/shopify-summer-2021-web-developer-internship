@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/shopify-summer-2021-web-developer-internship/static/css/main.d282ab33.chunk.css",
+    "main.js": "/shopify-summer-2021-web-developer-internship/static/js/main.d8038d77.chunk.js",
+    "main.js.map": "/shopify-summer-2021-web-developer-internship/static/js/main.d8038d77.chunk.js.map",
+    "runtime-main.js": "/shopify-summer-2021-web-developer-internship/static/js/runtime-main.aba27f7f.js",
+    "runtime-main.js.map": "/shopify-summer-2021-web-developer-internship/static/js/runtime-main.aba27f7f.js.map",
+    "static/js/2.4f0fc2f3.chunk.js": "/shopify-summer-2021-web-developer-internship/static/js/2.4f0fc2f3.chunk.js",
+    "static/js/2.4f0fc2f3.chunk.js.map": "/shopify-summer-2021-web-developer-internship/static/js/2.4f0fc2f3.chunk.js.map",
+    "static/js/3.654cf91f.chunk.js": "/shopify-summer-2021-web-developer-internship/static/js/3.654cf91f.chunk.js",
+    "static/js/3.654cf91f.chunk.js.map": "/shopify-summer-2021-web-developer-internship/static/js/3.654cf91f.chunk.js.map",
+    "index.html": "/shopify-summer-2021-web-developer-internship/index.html",
+    "static/css/main.d282ab33.chunk.css.map": "/shopify-summer-2021-web-developer-internship/static/css/main.d282ab33.chunk.css.map",
+    "static/js/2.4f0fc2f3.chunk.js.LICENSE.txt": "/shopify-summer-2021-web-developer-internship/static/js/2.4f0fc2f3.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.aba27f7f.js",
+    "static/js/2.4f0fc2f3.chunk.js",
+    "static/css/main.d282ab33.chunk.css",
+    "static/js/main.d8038d77.chunk.js"
+  ]
+}
