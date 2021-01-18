@@ -1,12 +1,18 @@
 import React from "react";
 
 const Navbar = (props) => {
+  const handleClick = () => {
+    console.log("HERE!");
+  };
+
   return (
     <div className="nb-container">
       <img
         className="navbar-logo"
         src="./shoppies-logo-2.png"
         alt="shoppies-logo"
+        onClick
+        {...handleClick()}
       />
       <div className="search-bar">
         <form className="search-form" onSubmit={props.getMovies}>
